@@ -41,6 +41,27 @@ class TodolistVC: UITableViewController {
         
     }
     
+    //Mark - Bar button add
+    @IBAction func barButtonAdd(_ sender: UIBarButtonItem) {
+        var textFelfd = UITextField()
+        
+        let arlent = UIAlertController(title: "Add something", message: "", preferredStyle: .alert)
+        let action = UIAlertAction(title: "add", style: .default) { (action) in
+            self.listArray.append(textFelfd.text!)
+            self.tableView.reloadData()
+        }
+        arlent.addTextField { (alertTextField) in
+            alertTextField.placeholder = "something"
+            textFelfd = alertTextField
+      
+        }
+        
+        arlent.addAction(action)
+        present(arlent, animated: true, completion: nil)
+        
+        
+    }
+    
     
     
 }
